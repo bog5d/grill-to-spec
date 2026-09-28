@@ -33,6 +33,7 @@
 - `GCCSEG.md`：需求完整性检查
 - `SPEC_LIFECYCLE.md`：从想法到施工的生命周期
 - `SCP-v3.4.md`：工程原则
+- `docs/ESCALATION.md`：升级 / 少问纪律（自决优先）
 - `templates/`：标准产出模板
 - `examples/`：真实跑通过的例子
 - `HANDOFF.md`：接力说明
