@@ -1,29 +1,17 @@
-# HANDOFF — Grill to Spec V0.1
+# HANDOFF — Grill to Spec
 
 ## 当前状态
 
-- V0.1 方法论仓库骨架已生成。
-- 已包含 START_HERE / Grill / GCCSEG / Converge / Spec Lifecycle / SCP v3.4 / 模板 / 第一真实案例。
-- 已补 `docs/ESCALATION.md`：少问 / 升级纪律（WP-D）。
-- 本地 Git 已初始化并提交。
-- 远端 `bog5d/grill-to-spec` 尚未创建（当前 ChatGPT GitHub connector 无创建 repository 动作）。
+方法论已完成第一次真实 dogfood，并吸收两个关键改进：
+1. 少问 / 升级纪律：`docs/ESCALATION.md`
+2. 项目生命周期导航：`PROJECT_ROADMAP.md`
 
-## 下一位 AI 的第一步
+当前版本：**V0.2-dogfood**。
 
-1. 阅读 `START_HERE.md`、`README.md`、`SCP-v3.4.md`。
-2. 检查 `git status`，确认工作树干净。
-3. 在 GitHub 创建 `bog5d/grill-to-spec`（建议先 public；若担心示例泄露可先 private）。
-4. 设置 origin，push main。
-5. 远端核验 README/START_HERE/HANDOFF 可读。
-6. 不扩功能；先用本方法继续生成 `仓颉 Teams Channel` 的正式 Spec/Plan/Tasks。
+## 新项目标准交付
 
-## 下一阶段
+Converge 后应生成：
 
-新建独立私有仓：`bog5d/cangjie-teams-channel`。
-
-不要把 grill-to-spec 与业务产品合并成一个仓库。
-
-新仓第一批文件来自今天已收敛的需求：
 - INTENT
 - REQUIREMENTS
 - NON_GOALS
@@ -31,16 +19,24 @@
 - SPEC
 - ACCEPTANCE
 - ARCHITECTURE
+- **PROJECT_ROADMAP**
+- PLAN
+- TASKS
 - BACKLOG
-- SPIKES
-- START_HERE
+- SPIKES（仅必要时）
 
-随后扫描/复用：
-- `bog5d/claude-skills/productivity/team-communication-audit`
-- 现有路演/会议长期资产能力
+## 硬规则
 
-再形成 Phase 1 PLAN + TASKS，注册 Parent Work，交给 `cangjie-gm`（司仓）无人值守执行。
+**Phase completion ≠ Project completion。**
 
-## 交接原则
+开发 AI 必须先读产品仓 `PROJECT_ROADMAP.md`。只要
+`PROJECT_COMPLETE=false`，就继续 Current Child / Next Phase。
 
-如果下一个 AI 无法完成远端创建，也不得重新讨论需求；保留本目录，输出唯一阻塞与下一条可执行命令。
+## 第一真实案例
+
+`bog5d/cangjie-teams-channel`
+
+该案例暴露并验证了 Roadmap 层的必要性：仅有 SPEC / ARCHITECTURE / PLAN / TASKS 时，
+阶段完成容易被误判成项目完成。
+
+后续继续用真实项目 dogfood，再迭代方法论。
