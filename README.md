@@ -1,6 +1,6 @@
 # Grill to Spec
 
-**Grill → Converge → Spec → Spike → Plan → Tasks → SCP Gate**
+**Grill → Converge → Spec → Architecture → Roadmap → Phase → Tasks → Gate → Advance**
 
 一个面向 AI 开发的需求澄清与交付前置方法：先把需求问清楚，再形成可开发、可验收、可交接的 Spec；只有真正存在技术未知时才做 Spike。
 
@@ -18,6 +18,7 @@
 6. 先形成“足够靠谱”的 Spec，不追求文档完美。
 7. 只有技术未知会改变方案时才做 Spike；Spike 必须时间盒化。
 8. 工程阶段遵守 SCP v3.4：可靠、复用、迁移、AI 稳定、积木化、黑盒化。
+9. 每个持续项目必须有 PROJECT_ROADMAP：Phase 完成不等于项目完成；未满足 Project Completion Gate 不得封箱。
 
 ## 最短用法
 
@@ -31,7 +32,8 @@
 - `GRILL.md`：追问协议
 - `CONVERGE.md`：何时停止问
 - `GCCSEG.md`：需求完整性检查
-- `SPEC_LIFECYCLE.md`：从想法到施工的生命周期
+- `SPEC_LIFECYCLE.md`：从想法到多阶段交付的生命周期
+- `templates/PROJECT_ROADMAP.md`：项目阶段总导航模板
 - `SCP-v3.4.md`：工程原则
 - `docs/ESCALATION.md`：升级 / 少问纪律（自决优先）
 - `templates/`：标准产出模板
