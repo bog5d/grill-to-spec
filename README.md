@@ -1,45 +1,49 @@
 # Grill to Spec
 
-**Grill → Converge → Spec → Architecture → Roadmap → Phase → Tasks → Gate → Advance**
+**Grill → Converge → Spec → Architecture → Project Roadmap → Phase → Plan → Tasks → SCP Gate**
 
-一个面向 AI 开发的需求澄清与交付前置方法：先把需求问清楚，再形成可开发、可验收、可交接的 Spec；只有真正存在技术未知时才做 Spike。
+一个面向 AI 开发的需求澄清与持续交付方法：先把需求问清楚，再形成可开发、可验收、可交接、可持续推进的施工体系。
 
 ## 解决什么问题
 
-很多 AI 开发失败，不是代码能力不足，而是需求还没说清楚就开始写代码。本仓库负责把“脑子里的想法”变成“任何 AI/开发者都能接手的施工文件”。
+AI 开发常见两类失败：
+1. 需求没说清楚就开始写代码；
+2. 某个 Phase 做完后，AI误以为整个项目结束。
+
+本仓同时解决这两类问题。
 
 ## 核心原则
 
 1. 不直接开发，先 Grill。
 2. 每轮只问 1–3 个真正改变架构/交付的问题。
-3. 问题分 P0 / P1 / P2：P0 必须回答，P1 可显式假设，P2 进入 backlog，不阻塞交付。
-4. 持续检查 GCCSEG：Goal / Context / Capability / State / Evidence / Gate。
-5. 需求足以施工时必须主动停止追问，进入 Converge。
-6. 先形成“足够靠谱”的 Spec，不追求文档完美。
-7. 只有技术未知会改变方案时才做 Spike；Spike 必须时间盒化。
-8. 工程阶段遵守 SCP v3.4：可靠、复用、迁移、AI 稳定、积木化、黑盒化。
-9. 每个持续项目必须有 PROJECT_ROADMAP：Phase 完成不等于项目完成；未满足 Project Completion Gate 不得封箱。
+3. P0 必须解决；P1 可显式假设；P2 进 backlog。
+4. 持续检查 GCCSEG。
+5. 足够施工时主动 Converge。
+6. 形成 Spec + Architecture + **Project Roadmap** + Plan + Tasks。
+7. **Phase completion ≠ Project completion。**
+8. 只有重大技术未知才做 Spike。
+9. 工程阶段遵守 SCP v3.4。
+10. 非终态自动推进，不因阶段汇报停。
 
 ## 最短用法
 
-把下面这句话交给任意 AI：
-
-> 请读取本仓库 `START_HERE.md`，进入 Grill to Spec 模式。先不要开发，逐轮把需求问清楚；达到收敛门后生成完整 Spec、Architecture、Plan、Tasks。只有重大技术未知才提出 Spike。
+> 请读取本仓库 `START_HERE.md`，进入 Grill to Spec 模式。先不要开发；逐轮澄清需求。收敛后生成 Spec、Architecture、PROJECT_ROADMAP、Plan、Tasks。开发阶段必须按 Roadmap 自动推进；只有 PROJECT_COMPLETE=true 才能整体封箱。
 
 ## 目录
 
 - `START_HERE.md`：AI 入口
 - `GRILL.md`：追问协议
-- `CONVERGE.md`：何时停止问
-- `GCCSEG.md`：需求完整性检查
-- `SPEC_LIFECYCLE.md`：从想法到多阶段交付的生命周期
-- `templates/PROJECT_ROADMAP.md`：项目阶段总导航模板
+- `CONVERGE.md`：停止追问规则
+- `GCCSEG.md`：需求完整性
+- `SPEC_LIFECYCLE.md`：完整生命周期
+- `PROJECT_ROADMAP.md`：项目阶段导航协议
 - `SCP-v3.4.md`：工程原则
-- `docs/ESCALATION.md`：升级 / 少问纪律（自决优先）
-- `templates/`：标准产出模板
-- `examples/`：真实跑通过的例子
-- `HANDOFF.md`：接力说明
+- `docs/ESCALATION.md`：少问 / 升级纪律
+- `templates/PROJECT_ROADMAP.md`：项目 Roadmap 模板
+- `templates/`：其他标准产出
+- `examples/`：真实案例
+- `HANDOFF.md`：方法论仓交接
 
 ## 当前版本
 
-V0.1 — dogfood 版本。第一例：`仓颉 Teams Channel`。
+V0.2-dogfood — 第一真实案例：`仓颉 Teams Channel`。

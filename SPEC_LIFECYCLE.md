@@ -8,28 +8,30 @@ Idea
 → Converge
 → Spec
 → Architecture
-→ PROJECT_ROADMAP
-→ Spike? (only if necessary)
+→ Project Roadmap
 → Current Phase
+→ Spike? (only if necessary)
 → Plan
 → Tasks / Work Packages
 → SCP Preflight
 → Implement
 → Evidence
-→ Phase Gate
-→ Advance Phase (if PROJECT_COMPLETE=false)
-→ Project Completion Gate (only when PROJECT_COMPLETE=true)
+→ Gate
+→ Phase Advance?
+   ├─ Yes → next Phase / Parent / Tasks
+   └─ No  → only then evaluate PROJECT_COMPLETE
 → Handoff / Freeze
 ```
 
-## Phase 与 Project 的区别
+## Lifecycle invariant
 
-- **Phase PASS ≠ Project Complete**。
-- `PROJECT_ROADMAP.md` 是总工程进度牌：定义阶段、当前 Phase、下一步与项目完成条件。
-- 每个 Phase 可以有自己的 Parent Work / Child WPs / Acceptance / Evidence。
-- 当前 Phase PASS 后，如果 `PROJECT_COMPLETE=false`，必须继续下一 Phase；阶段汇报不是停机点。
-- 只有 `PROJECT_COMPLETE=true` 且 Project Completion Gate 有独立 Evidence，才能整体封箱。
-- Roadmap 是导航，不得成为第二运行时状态源。
+**Phase completion ≠ Project completion。**
+
+多阶段项目必须有 `PROJECT_ROADMAP.md`。只要其中
+`PROJECT_COMPLETE = false`，当前 Phase PASS 后就必须继续读取下一 Phase，
+不能因为阶段汇报、V1 可演示或某个 Parent 完成而整体封箱。
+
+详见 `PROJECT_ROADMAP.md`。
 
 ## Spike 的定义
 
