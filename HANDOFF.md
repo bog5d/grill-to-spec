@@ -4,6 +4,7 @@
 
 - V0.1 方法论仓库骨架已生成。
 - 已包含 START_HERE / Grill / GCCSEG / Converge / Spec Lifecycle / SCP v3.4 / 模板 / 第一真实案例。
+- 已补 `docs/ESCALATION.md`：少问 / 升级纪律（WP-D）。
 - 本地 Git 已初始化并提交。
 - 远端 `bog5d/grill-to-spec` 尚未创建（当前 ChatGPT GitHub connector 无创建 repository 动作）。
 
