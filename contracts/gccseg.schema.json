@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GCCSEG Task Contract",
+  "type": "object",
+  "required": [
+    "goal",
+    "context",
+    "capability",
+    "state",
+    "evidence",
+    "gate"
+  ],
+  "properties": {
+    "goal": {
+      "type": "object",
+      "required": [
+        "success_criteria"
+      ],
+      "properties": {
+        "success_criteria": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "required": [
+        "facts"
+      ],
+      "properties": {
+        "facts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "claim",
+              "classification",
+              "source"
+            ],
+            "properties": {
+              "claim": {
+                "type": "string"
+              },
+              "classification": {
+                "enum": [
+                  "CURRENT",
+                  "HISTORICAL",
+                  "INFERRED",
+                  "UNKNOWN"
+                ]
+              },
+              "source": {
+                "type": "string"
+              },
+              "event_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "collected_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        }
+      }
+    },
+    "capability": {
+      "type": "object",
+      "required": [
+        "effective_config_ref"
+      ],
+      "properties": {
+        "effective_config_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "state": {
+      "type": "object",
+      "required": [
+        "status",
+        "next_action"
+      ],
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "next_action": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "subject_id",
+          "source",
+          "event_at",
+          "collected_at",
+          "claim",
+          "validation_result"
+        ],
+        "properties": {
+          "subject_id": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "event_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "collected_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "claim": {
+            "type": "string"
+          },
+          "validation_result": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "UNKNOWN"
+            ]
+          }
+        }
+      }
+    },
+    "gate": {
+      "type": "object",
+      "required": [
+        "acceptance_criteria",
+        "level"
+      ],
+      "properties": {
+        "acceptance_criteria": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "level": {
+          "enum": [
+            "CLI_READY",
+            "TASK_EXECUTED",
+            "AUTONOMOUS_DISPATCHED",
+            "FAILOVER_VERIFIED",
+            "UNATTENDED_HANDOFF_VERIFIED"
+          ]
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

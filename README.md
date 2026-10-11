@@ -1,4 +1,4 @@
-# Grill to Spec
+# Grill to Spec · SCP v3.7 / Harness
 
 **Grill → Converge → Spec → Architecture → Project Roadmap → Phase → Plan → Tasks → SCP Gate**
 
@@ -22,8 +22,16 @@ AI 开发常见两类失败：
 6. 形成 Spec + Architecture + **Project Roadmap** + Plan + Tasks。
 7. **Phase completion ≠ Project completion。**
 8. 只有重大技术未知才做 Spike。
-9. 工程阶段遵守 SCP v3.4。
+9. 工程阶段遵守 SCP v3.7。
 10. 非终态自动推进，不因阶段汇报停。
+
+## 工程规范入口（SCP v3.7）
+
+- **[SCP-v3.7.md](SCP-v3.7.md)**：现行工程原则，替代旧版 v3.4。
+- **[HARNESS.md](HARNESS.md)**：GCCSEG / Harness 分级与反误判强制契约。
+- **[contracts/gccseg.schema.json](contracts/gccseg.schema.json)**：机器可读任务契约。
+- **[scripts/check_gccseg.py](scripts/check_gccseg.py)**：无外部依赖的结构检查；仅做结构校验，不能代替独立语义验收。
+- 小任务 L0 只遵守安全和回归；中大型 L1/L2 必须读取规范、按级复用 Harness。
 
 ## 最短用法
 
