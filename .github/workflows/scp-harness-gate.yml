@@ -1,0 +1,33 @@
+name: SCP Harness Gate
+on:
+  push:
+    branches: [main, "feat/scp-v3-7-harness"]
+  pull_request:
+    paths:
+      - "SCP-v3.7.md"
+      - "HARNESS.md"
+      - "GCCSEG.md"
+      - "contracts/**"
+      - "scripts/check_gccseg.py"
+      - "tests/test_check_gccseg.py"
+      - "examples/gccseg/**"
+      - ".github/workflows/scp-harness-gate.yml"
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Structural gate tests
+        run: python -m unittest discover -s tests -p test_check_gccseg.py -v
+      - name: Valid fixture must pass
+        run: python scripts/check_gccseg.py examples/gccseg/valid.json
+      - name: Invalid fixture must fail
+        shell: bash
+        run: |
+          if python scripts/check_gccseg.py examples/gccseg/invalid-stale-current.json; then
+            echo "ERROR: invalid fixture passed"
+            exit 1
+          fi
