@@ -1,0 +1,24 @@
+name: Reusable SCP v3.7 Contract Gate
+on:
+  workflow_call:
+    inputs:
+      contract_path:
+        description: "GCCSEG contract JSON in caller repository"
+        required: true
+        type: string
+jobs:
+  gccseg:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout caller repository
+        uses: actions/checkout@v4
+        with:
+          path: project
+      - name: Checkout SCP policy at reviewed release commit
+        uses: actions/checkout@v4
+        with:
+          repository: bog5d/grill-to-spec
+          ref: e5917e07f8e324a371d1cd57c33063a4556ee9f0
+          path: policy
+      - name: Validate GCCSEG structure
+        run: python policy/scripts/check_gccseg.py "project/${{ inputs.contract_path }}"
