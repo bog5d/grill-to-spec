@@ -1,0 +1,41 @@
+{
+  "goal": {
+    "success_criteria": [
+      "CLI returns PONG for effective configured path"
+    ]
+  },
+  "context": {
+    "facts": [
+      {
+        "claim": "Configured CLI responds",
+        "classification": "CURRENT",
+        "source": "direct CLI test",
+        "event_at": "2026-10-11T05:00:00Z",
+        "collected_at": "2026-10-11T05:00:02Z"
+      }
+    ]
+  },
+  "capability": {
+    "effective_config_ref": "config/runtime_watchdog.json"
+  },
+  "state": {
+    "status": "VERIFYING",
+    "next_action": "independent reviewer checks artifact"
+  },
+  "evidence": [
+    {
+      "subject_id": "cursor",
+      "source": "configured CLI",
+      "event_at": "2026-10-11T05:00:00Z",
+      "collected_at": "2026-10-11T05:00:02Z",
+      "claim": "CLI responds PONG",
+      "validation_result": "PASS"
+    }
+  ],
+  "gate": {
+    "level": "CLI_READY",
+    "acceptance_criteria": [
+      "PONG and exit 0"
+    ]
+  }
+}
