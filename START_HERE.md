@@ -32,7 +32,7 @@
 - 多阶段项目必须明确 CURRENT_PHASE / CURRENT_CHILD / NEXT_ACTION / PROJECT_COMPLETE。
 - **Phase completion ≠ Project completion。**
 - 技术重大未知才新增 SPIKES。
-- 工程方案遵守 `SCP-v3.4.md`。
+- 工程方案遵守 `SCP-v3.7.md`；L1/L2 工程必须读取 `HARNESS.md` 并执行适用的 GCCSEG Gate；L0 小任务无需自建 Harness。
 
 ## 开发期自动推进
 
