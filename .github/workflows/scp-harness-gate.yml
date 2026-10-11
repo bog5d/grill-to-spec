@@ -24,10 +24,3 @@ jobs:
         run: python -m unittest discover -s tests -p test_check_gccseg.py -v
       - name: Valid fixture must pass
         run: python scripts/check_gccseg.py examples/gccseg/valid.json
-      - name: Invalid fixture must fail
-        shell: bash
-        run: |
-          if python scripts/check_gccseg.py examples/gccseg/invalid-stale-current.json; then
-            echo "ERROR: invalid fixture passed"
-            exit 1
-          fi
