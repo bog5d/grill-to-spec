@@ -101,6 +101,7 @@
         "status": "PASS",
         "evidence_refs": []
       }
-    ]
+    ],
+    "goal_state": "VERIFIED"
   }
 }
