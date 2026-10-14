@@ -1,10 +1,14 @@
 name: SCP Harness Gate
 on:
   push:
-    branches: [main, "feat/scp-v3-7-harness"]
+    branches: [main, "feat/scp-v3-8-goal-alignment-incident"]
   pull_request:
     paths:
-      - "SCP-v3.7.md"
+      - "SCP-v3.8.md"
+      - "HARNESS.md"
+      - "README.md"
+      - "START_HERE.md"
+      - "docs/INCIDENT-20261014-GM-GOAL-DRIFT.md"
       - "HARNESS.md"
       - "GCCSEG.md"
       - "contracts/**"
@@ -24,3 +28,11 @@ jobs:
         run: python -m unittest discover -s tests -p test_check_gccseg.py -v
       - name: Valid fixture must pass
         run: python scripts/check_gccseg.py examples/gccseg/valid.json
+      - name: V3.8 positive goal contract must pass
+        run: python scripts/check_gccseg.py --require-v3-8 examples/gccseg/v38-goal-aligned.json
+      - name: V3.8 goal-drift negative fixture must fail
+        run: |
+          if python scripts/check_gccseg.py --require-v3-8 examples/gccseg/v38-heartbeat-false-pass.json; then
+            echo "FAIL: false 100% allowed"
+            exit 1
+          fi
