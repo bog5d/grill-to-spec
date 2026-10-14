@@ -104,6 +104,15 @@ def validate(d, require_v38=False):
                     mapped_ids = {x.get("goal_metric_id") for x in mapping if isinstance(x, dict)} if isinstance(mapping, list) else set()
                     if not mapped_ids.intersection(set(names)):
                         errors.append("work_to_goal_map must reference outcome metric")
+                goal_state = g.get("goal_state")
+                if goal_state not in ("NOT_MET", "UNKNOWN", "VERIFIED"):
+                    errors.append("L2 goal_state required (NOT_MET / UNKNOWN / VERIFIED)")
+                total_claimed = progress.get("outcome_verified_points") if isinstance(progress, dict) else None
+                if goal_state == "VERIFIED" or total_claimed == 100:
+                    if not isinstance(gates, list) or not gates or any(not isinstance(h, dict) or h.get("status") != "PASS" for h in gates):
+                        errors.append("100%/VERIFIED requires every hard gate PASS")
+                    if total_claimed != 100:
+                        errors.append("VERIFIED requires full outcome 100/100")
                 if not isinstance(gates, list) or not gates:
                     errors.append("L2 requires hard_gates")
                 else:
