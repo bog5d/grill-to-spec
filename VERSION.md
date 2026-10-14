@@ -1,5 +1,7 @@
 # SCP engineering policy versions
 
+- **v3.8 (2026-10-14)**: goal/outcome alignment first; dual progress measures; outcome-based Gate, incident response, mandatory v3.8 L1/L2 contract and negative regression for heartbeat-with-zero-work. v3.7 remains immutable historical reference.
+
 - v3.7 candidate: Harness-native GCCSEG, evidence integrity, autonomy acceptance levels, L0/L1/L2 complexity classification.
 - v3.6: previous user-authored principle set; v3.7 retains reuse scan, Kernel/Pack/Extension, role separation, capability growth, safety, and durable handoff.
 - v3.4: historical SCP-v3.4.md retained for traceability.
