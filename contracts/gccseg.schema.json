@@ -361,6 +361,13 @@
               }
             }
           }
+        },
+        "goal_state": {
+          "enum": [
+            "NOT_MET",
+            "UNKNOWN",
+            "VERIFIED"
+          ]
         }
       }
     }
@@ -413,7 +420,8 @@
           "goal_alignment": {
             "required": [
               "outcome_metrics",
-              "hard_gates"
+              "hard_gates",
+              "goal_state"
             ],
             "properties": {
               "outcome_metrics": {
