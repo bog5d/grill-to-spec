@@ -29,10 +29,11 @@
   - **PROJECT_ROADMAP**
   - PLAN
   - TASKS
+- L1/L2 必须先冻结用户可观察的终局 Goal / 业务验收场景 / 当前基线；禁止把测试项通过率当最终目标达成率，见 `HARNESS.md` 与 `docs/INCIDENT-20261014-GM-GOAL-DRIFT.md`。
 - 多阶段项目必须明确 CURRENT_PHASE / CURRENT_CHILD / NEXT_ACTION / PROJECT_COMPLETE。
 - **Phase completion ≠ Project completion。**
 - 技术重大未知才新增 SPIKES。
-- 工程方案遵守 `SCP-v3.7.md`；L1/L2 工程必须读取 `HARNESS.md` 并执行适用的 GCCSEG Gate；L0 小任务无需自建 Harness。
+- 工程方案遵守 `SCP-v3.8.md`；L1/L2 工程必须读取 `HARNESS.md` 并执行适用的 GCCSEG Gate；L0 小任务无需自建 Harness。
 
 ## 开发期自动推进
 

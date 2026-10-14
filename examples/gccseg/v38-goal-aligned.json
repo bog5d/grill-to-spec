@@ -1,0 +1,107 @@
+{
+  "contract_version": "3.8",
+  "task_level": "L2",
+  "goal": {
+    "success_criteria": [
+      "GM autonomously dispatches a real executor, passes Gate, and advances next WP without developer session"
+    ]
+  },
+  "context": {
+    "facts": [
+      {
+        "claim": "Heartbeat only; no real dispatch",
+        "classification": "CURRENT",
+        "source": "independent audit",
+        "event_at": "2026-10-14T00:47:00Z",
+        "collected_at": "2026-10-14T00:55:00Z"
+      }
+    ]
+  },
+  "capability": {
+    "effective_config_ref": "config/effective-runtime.json"
+  },
+  "state": {
+    "status": "BLOCKED",
+    "next_action": "Fix true executor launch in isolation"
+  },
+  "evidence": [
+    {
+      "subject_id": "gm-e2e",
+      "source": "real controller run log",
+      "event_at": "2026-10-14T00:47:00Z",
+      "collected_at": "2026-10-14T00:55:00Z",
+      "claim": "No successful dispatch",
+      "validation_result": "FAIL"
+    }
+  ],
+  "gate": {
+    "level": "UNATTENDED_HANDOFF_VERIFIED",
+    "acceptance_criteria": [
+      "At least three real WPs with independent gate and developer session absent"
+    ]
+  },
+  "goal_alignment": {
+    "north_star": "Real unattended GM work producing delivered artifacts and automatic handoff",
+    "user_visible_acceptance": [
+      "Developer exits; GM dispatches real executor and completes three dependent work packages"
+    ],
+    "baseline": {
+      "status": "FAIL",
+      "evidence_ref": "private audit baseline (access-controlled)"
+    },
+    "work_to_goal_map": [
+      {
+        "work_item_id": "WP-EXECUTOR",
+        "goal_metric_id": "M01",
+        "expected_change": "Real executor works and returns artifact",
+        "verified_change": "FAIL"
+      }
+    ],
+    "progress": {
+      "engineering_percent": 75,
+      "outcome_verified_points": 10,
+      "outcome_total_points": 100
+    },
+    "next_goal_gap": "Need successful autonomous task execution and verified handoff",
+    "outcome_metrics": [
+      {
+        "id": "M01",
+        "weight": 40,
+        "verified_points": 0,
+        "status": "FAIL",
+        "evidence_refs": []
+      },
+      {
+        "id": "M02",
+        "weight": 40,
+        "verified_points": 0,
+        "status": "UNKNOWN",
+        "evidence_refs": []
+      },
+      {
+        "id": "M03",
+        "weight": 20,
+        "verified_points": 10,
+        "status": "ISOLATED_PASS",
+        "evidence_refs": [
+          "isolation safety test evidence only"
+        ]
+      }
+    ],
+    "hard_gates": [
+      {
+        "id": "H-REAL-DISPATCH",
+        "status": "FAIL",
+        "evidence_refs": [
+          "private audit baseline"
+        ]
+      },
+      {
+        "id": "H-UNATTENDED-HANDOFF",
+        "status": "UNKNOWN",
+        "evidence_refs": []
+      }
+    ],
+    "goal_state": "NOT_MET"
+  }
+}

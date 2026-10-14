@@ -161,7 +161,279 @@
           ]
         }
       }
+    },
+    "contract_version": {
+      "type": "string",
+      "enum": [
+        "3.7",
+        "3.8"
+      ]
+    },
+    "task_level": {
+      "type": "string",
+      "enum": [
+        "L0",
+        "L1",
+        "L2"
+      ]
+    },
+    "goal_alignment": {
+      "type": "object",
+      "required": [
+        "north_star",
+        "user_visible_acceptance",
+        "baseline",
+        "work_to_goal_map",
+        "progress",
+        "next_goal_gap"
+      ],
+      "properties": {
+        "north_star": {
+          "type": "string",
+          "minLength": 1
+        },
+        "user_visible_acceptance": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "baseline": {
+          "type": "object",
+          "required": [
+            "status",
+            "evidence_ref"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "PARTIAL",
+                "UNKNOWN"
+              ]
+            },
+            "evidence_ref": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "work_to_goal_map": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "work_item_id",
+              "goal_metric_id",
+              "expected_change"
+            ],
+            "properties": {
+              "work_item_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "goal_metric_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "expected_change": {
+                "type": "string",
+                "minLength": 1
+              },
+              "verified_change": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "progress": {
+          "type": "object",
+          "required": [
+            "engineering_percent",
+            "outcome_verified_points",
+            "outcome_total_points"
+          ],
+          "properties": {
+            "engineering_percent": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 100
+            },
+            "outcome_verified_points": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 100
+            },
+            "outcome_total_points": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 100
+            }
+          }
+        },
+        "next_goal_gap": {
+          "type": "string",
+          "minLength": 1
+        },
+        "outcome_metrics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "weight",
+              "verified_points",
+              "status",
+              "evidence_refs"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "weight": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 100
+              },
+              "verified_points": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "status": {
+                "enum": [
+                  "UNKNOWN",
+                  "FAIL",
+                  "ISOLATED_PASS",
+                  "REAL_PASS"
+                ]
+              },
+              "evidence_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "hard_gates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "status",
+              "evidence_refs"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "enum": [
+                  "PASS",
+                  "FAIL",
+                  "BLOCKED",
+                  "UNKNOWN"
+                ]
+              },
+              "evidence_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "goal_state": {
+          "enum": [
+            "NOT_MET",
+            "UNKNOWN",
+            "VERIFIED"
+          ]
+        }
+      }
     }
   },
-  "additionalProperties": true
+  "additionalProperties": true,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "contract_version": {
+            "const": "3.8"
+          }
+        },
+        "required": [
+          "contract_version"
+        ]
+      },
+      "then": {
+        "required": [
+          "task_level",
+          "goal_alignment"
+        ],
+        "properties": {
+          "task_level": {
+            "enum": [
+              "L1",
+              "L2"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "contract_version": {
+            "const": "3.8"
+          },
+          "task_level": {
+            "const": "L2"
+          }
+        },
+        "required": [
+          "contract_version",
+          "task_level"
+        ]
+      },
+      "then": {
+        "properties": {
+          "goal_alignment": {
+            "required": [
+              "outcome_metrics",
+              "hard_gates",
+              "goal_state"
+            ],
+            "properties": {
+              "outcome_metrics": {
+                "minItems": 1
+              },
+              "hard_gates": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
 }

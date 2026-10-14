@@ -1,4 +1,4 @@
-# Grill to Spec · SCP v3.7 / Harness
+# Grill to Spec · SCP v3.8 / Harness
 
 **Grill → Converge → Spec → Architecture → Project Roadmap → Phase → Plan → Tasks → SCP Gate**
 
@@ -22,13 +22,14 @@ AI 开发常见两类失败：
 6. 形成 Spec + Architecture + **Project Roadmap** + Plan + Tasks。
 7. **Phase completion ≠ Project completion。**
 8. 只有重大技术未知才做 Spike。
-9. 工程阶段遵守 SCP v3.7。
+9. 工程阶段遵守 SCP v3.8，先锁定用户可见终局目标、明确基线和硬门槛，再开发。
 10. 非终态自动推进，不因阶段汇报停。
+11. 工程进度与终局效果达成率分开，验收对象必须与用户目标同构；见 [GM 目标漂移反面案例](docs/INCIDENT-20261014-GM-GOAL-DRIFT.md)。
 
-## 工程规范入口（SCP v3.7）
+## 工程规范入口（SCP v3.8）
 
-- **[SCP-v3.7.md](SCP-v3.7.md)**：现行工程原则，替代旧版 v3.4。
-- **[HARNESS.md](HARNESS.md)**：GCCSEG / Harness 分级与反误判强制契约。
+- **[SCP-v3.8.md](SCP-v3.8.md)**：现行工程原则，替代旧版 v3.4。
+- **[HARNESS.md](HARNESS.md)**：GCCSEG / Harness 分级、目标对齐与反误判强制契约。
 - **[contracts/gccseg.schema.json](contracts/gccseg.schema.json)**：机器可读任务契约。
 - **[scripts/check_gccseg.py](scripts/check_gccseg.py)**：无外部依赖的结构检查；仅做结构校验，不能代替独立语义验收。
 - 小任务 L0 只遵守安全和回归；中大型 L1/L2 必须读取规范、按级复用 Harness。
@@ -45,7 +46,7 @@ AI 开发常见两类失败：
 - `GCCSEG.md`：需求完整性
 - `SPEC_LIFECYCLE.md`：完整生命周期
 - `PROJECT_ROADMAP.md`：项目阶段导航协议
-- `SCP-v3.4.md`：工程原则
+- `SCP-v3.8.md`：当前工程原则；`SCP-v3.7.md` 与 `SCP-v3.4.md` 留存历史
 - `docs/ESCALATION.md`：少问 / 升级纪律
 - `templates/PROJECT_ROADMAP.md`：项目 Roadmap 模板
 - `templates/`：其他标准产出
