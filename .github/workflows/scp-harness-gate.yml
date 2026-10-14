@@ -15,6 +15,7 @@ on:
       - "tests/test_check_gccseg.py"
       - "examples/gccseg/**"
       - ".github/workflows/scp-harness-gate.yml"
+      - ".github/workflows/reusable-gccseg.yml"
 jobs:
   contract:
     runs-on: ubuntu-latest
