@@ -1,4 +1,4 @@
-name: Reusable SCP v3.7 Contract Gate
+name: Reusable SCP v3.8 Contract Gate
 on:
   workflow_call:
     inputs:
@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: bog5d/grill-to-spec
-          ref: e5917e07f8e324a371d1cd57c33063a4556ee9f0
+          ref: 49e05357a7e6aa6190283a47a9215b17615049d6
           path: policy
       - name: Validate GCCSEG structure
-        run: python policy/scripts/check_gccseg.py "project/${{ inputs.contract_path }}"
+        run: python policy/scripts/check_gccseg.py --require-v3-8 "project/${{ inputs.contract_path }}"
