@@ -9,7 +9,6 @@ on:
       - "README.md"
       - "START_HERE.md"
       - "docs/INCIDENT-20261014-GM-GOAL-DRIFT.md"
-      - "HARNESS.md"
       - "GCCSEG.md"
       - "contracts/**"
       - "scripts/check_gccseg.py"
