@@ -101,6 +101,7 @@
         "status": "UNKNOWN",
         "evidence_refs": []
       }
-    ]
+    ],
+    "goal_state": "NOT_MET"
   }
 }
