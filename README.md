@@ -35,7 +35,7 @@ AI 开发常见两类失败：
 - 小任务 L0 只遵守安全和回归；中大型 L1/L2 必须读取规范、按级复用 Harness。
 
 ## 独立监工（可选双窗口协议）
-L1/L2长任务可以采用“开发执行窗口＋独立监工窗口”。先读 [独立监工原则 V0.1（提案）](docs/INDEPENDENT_SUPERVISOR-v0.1.md)，新监工窗口使用 [启动模板](templates/INDEPENDENT_SUPERVISOR_KICKOFF.md)。监工须先实测跨会话唤醒/定时能力，复用已有GM控制面，按终局效果和真实Evidence监督自动续工，不能由两个窗口衍生双调度。**V0.1为待评审提案，不改变SCP v3.8强制规范。**
+L1/L2长任务可以采用“开发执行窗口＋独立监工窗口”。先读 [独立监工原则 V0.2（提案）](docs/INDEPENDENT_SUPERVISOR-v0.2.md)，新监工窗口使用 [启动模板](templates/INDEPENDENT_SUPERVISOR_KICKOFF.md)。监工须先实测跨会话唤醒/定时能力，复用已有GM控制面，按终局效果和真实Evidence监督自动续工，不能由两个窗口衍生双调度。**V0.2为待评审提案，不改变SCP v3.8强制规范。**
 
 ## 最短用法
 
