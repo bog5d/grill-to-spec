@@ -34,6 +34,9 @@ AI 开发常见两类失败：
 - **[scripts/check_gccseg.py](scripts/check_gccseg.py)**：无外部依赖的结构检查；仅做结构校验，不能代替独立语义验收。
 - 小任务 L0 只遵守安全和回归；中大型 L1/L2 必须读取规范、按级复用 Harness。
 
+## 独立监工（可选双窗口协议）
+L1/L2长任务可以采用“开发执行窗口＋独立监工窗口”。优先读 [独立监工原则 V0.3（提案）](docs/INDEPENDENT_SUPERVISOR-v0.3.md)，新监工窗口使用 [快捷启动模板（正文1564字符）](templates/INDEPENDENT_SUPERVISOR_KICKOFF.md)。V0.3强化20分钟可视化巡检、工程/效果双进度、上轮差分、ETA、自主低风险裁决、空闲唤醒、独立Gate及无人干预有效推进率；须先实测跨会话通信及Cron，不创建第二控制面。历史实证见[V0.2](docs/INDEPENDENT_SUPERVISOR-v0.2.md)。**V0.3为PR待评审提案，不改变SCP v3.8强制规范，不代表已修改生产Cron。**
+
 ## 最短用法
 
 > 请读取本仓库 `START_HERE.md`，进入 Grill to Spec 模式。先不要开发；逐轮澄清需求。收敛后生成 Spec、Architecture、PROJECT_ROADMAP、Plan、Tasks。开发阶段必须按 Roadmap 自动推进；只有 PROJECT_COMPLETE=true 才能整体封箱。
