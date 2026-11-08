@@ -34,6 +34,7 @@
 - **Phase completion ≠ Project completion。**
 - 技术重大未知才新增 SPIKES。
 - 工程方案遵守 `SCP-v3.8.md`；L1/L2 工程必须读取 `HARNESS.md` 并执行适用的 GCCSEG Gate；L0 小任务无需自建 Harness。
+- **新开工可复用模块（L1/L2）强制执行 [`黑盒封存`](docs/BLACKBOX_SEALING.md)：先复用积木，独立验收后封存；以后只走接口/Adapter；解封需理由、回归、升版。存量不返工，在建任务不追溯。**
 
 ## 开发期自动推进
 

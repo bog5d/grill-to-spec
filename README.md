@@ -30,6 +30,7 @@ AI 开发常见两类失败：
 
 - **[SCP-v3.8.md](SCP-v3.8.md)**：现行工程原则，替代旧版 v3.4。
 - **[HARNESS.md](HARNESS.md)**：GCCSEG / Harness 分级、目标对齐与反误判强制契约。
+- **[黑盒封存执行规则](docs/BLACKBOX_SEALING.md)**：新 L1/L2 可复用模块的积木化/模块卡/独立验收/解封要求；不追溯旧项目。
 - **[contracts/gccseg.schema.json](contracts/gccseg.schema.json)**：机器可读任务契约。
 - **[scripts/check_gccseg.py](scripts/check_gccseg.py)**：无外部依赖的结构检查；仅做结构校验，不能代替独立语义验收。
 - 小任务 L0 只遵守安全和回归；中大型 L1/L2 必须读取规范、按级复用 Harness。
