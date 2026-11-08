@@ -16,10 +16,10 @@
 ## GCCSEG
 G Goal：明确成功条件和不可做的事。
 C Context：记录来源、event_at、collected_at、版本、CURRENT/HISTORICAL/INFERRED/UNKNOWN。历史记录只证明历史；AI 叙述不自动变事实。
-C Capability：从当前生效配置获取真实路径、参数、环境、工作目录、权限及模型；替代 CLI 结果不可用于否定正式入口。
-S State：状态转移必须合法，RUNNING 无执行器/无租约/无进展须进入恢复路径；区分 alive、productive、blocked、unknown；任务进展以有效产物与 Gate 为准。
+C Capability：从生效配置实测各授权节点/跨机通道、执行器、系统依赖、路径、权限、额度及模型；替代 CLI 结果不得否定正式入口。
+S State：状态转移必须合法；跨机以唯一写租约、持久检查点与幂等键约束接棒。RUNNING 无执行器/租约/进展须恢复；区分 alive、productive、blocked、unknown；进展以有效产物与 Gate 为准。
 E Evidence：至少 subject_id、source、event_at、collected_at、config_version、code_version、claim、observation、validation_result；命令、退出码、artifact 在适用时记录。检查对象一致性、时效、独立性与完整性。
-G Gate：Reviewer 按需求级行为判断，不绑定特定执行器的实现细节；CLI_READY、TASK_EXECUTED、AUTONOMOUS_DISPATCHED、FAILOVER_VERIFIED、UNATTENDED_HANDOFF_VERIFIED 分别取证。
+G Gate：Reviewer 按需求级行为判断；跨机核实节点/角色、实际产物、接棒和失败恢复，不以派工自报代替验收；CLI_READY、TASK_EXECUTED、AUTONOMOUS_DISPATCHED、FAILOVER_VERIFIED、UNATTENDED_HANDOFF_VERIFIED 分别取证。
 
 ## 防误判回归
 1. 旧 quota 不得永久封锁当前可用执行器。
